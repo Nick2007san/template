@@ -77,6 +77,9 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC, function (sprite, otherSprite) {
+    game.showLongText("you are caught, this is my cattle, i will not let you out ", DialogLayout.Center)
+})
 function StartConversation () {
 	
 }
@@ -360,7 +363,7 @@ function Create_player () {
         . . . . c b 5 5 5 5 b c . . . . 
         . . . . . f f f f f f . . . . . 
         `, SpriteKind.Player)
-    Playa.say("Where am I?", 2000)
+    Playa.say("Where am I?", 5000)
     tiles.placeOnTile(Playa, tiles.getTileLocation(1, 1))
     controller.moveSprite(Playa, 40, 40)
     scene.cameraFollowSprite(Playa)
@@ -579,3 +582,4 @@ tiles.placeOnTile(Bed, tiles.getTileLocation(1, 1))
 Create_player()
 Create_Dino()
 Create_Plate()
+game.showLongText("Wellcome to the terror game!!", DialogLayout.Center)
